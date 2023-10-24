@@ -4,3 +4,4 @@
 - TypeScript
 - Tailwind CSS
 - Shadcn UI
+- Clerk
