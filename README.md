@@ -5,3 +5,5 @@
 - Tailwind CSS
 - Shadcn UI
 - Clerk
+- Prisma
+- Supabase
