@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { LogOut } from 'lucide-react'
 import { useAuth, UserButton } from '@clerk/nextjs'
 import { isTeacher } from '@/lib/teacher'
+import { SearchInput } from '@/components/search-input'
 
 export const NavbarRoutes = () => {
   const { userId } = useAuth()
@@ -17,7 +18,11 @@ export const NavbarRoutes = () => {
 
   return (
     <>
-      {isSearchPage && <div className="hidden md:block">SearchInput</div>}
+      {isSearchPage && (
+        <div className="hidden md:block">
+          <SearchInput />
+        </div>
+      )}
       <div className="ml-auto flex gap-x-2">
         {isTeacherPage || isCoursePage ? (
           <Link href="/">
