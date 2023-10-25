@@ -1,16 +1,14 @@
 'use client'
 
-import { Course } from '@prisma/client'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import axios from 'axios'
 import { zodResolver } from '@hookform/resolvers/zod'
-import toast from 'react-hot-toast'
-import { Button } from '@/components/ui/button'
+import { useForm } from 'react-hook-form'
 import { Pencil } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
+
 import {
   Form,
   FormControl,
@@ -18,23 +16,26 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form'
-import { Textarea } from '@/components/ui/textarea'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
 
-interface DescriptionFormProps {
-  initialData: Course
+interface ChapterTitleFormProps {
+  initialData: {
+    title: string
+  }
   courseId: string
+  chapterId: string
 }
 
 const formSchema = z.object({
-  description: z.string().min(1, {
-    message: 'Description is required',
-  }),
+  title: z.string().min(1),
 })
 
-export const DescriptionForm = ({
+export const ChapterTitleForm = ({
   initialData,
   courseId,
-}: DescriptionFormProps) => {
+  chapterId,
+}: ChapterTitleFormProps) => {
   const [isEditing, setIsEditing] = useState(false)
 
   const toggleEdit = () => setIsEditing((current) => !current)
@@ -43,17 +44,18 @@ export const DescriptionForm = ({
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      description: initialData?.description || '',
-    },
+    defaultValues: initialData,
   })
 
   const { isSubmitting, isValid } = form.formState
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/courses/${courseId}`, values)
-      toast.success('Course updated')
+      await axios.patch(
+        `/api/courses/${courseId}/chapters/${chapterId}`,
+        values
+      )
+      toast.success('Chapter updated')
       toggleEdit()
       router.refresh()
     } catch {
@@ -64,28 +66,19 @@ export const DescriptionForm = ({
   return (
     <div className="mt-6 rounded-md border bg-slate-100 p-4">
       <div className="flex items-center justify-between font-medium">
-        Course description
+        Chapter title
         <Button onClick={toggleEdit} variant="ghost">
           {isEditing ? (
             <>Cancel</>
           ) : (
             <>
               <Pencil className="mr-2 h-4 w-4" />
-              Edit description
+              Edit title
             </>
           )}
         </Button>
       </div>
-      {!isEditing && (
-        <p
-          className={cn(
-            'mt-2 text-sm',
-            !initialData.description && 'italic text-slate-500'
-          )}
-        >
-          {initialData.description || 'No description'}
-        </p>
-      )}
+      {!isEditing && <p className="mt-2 text-sm">{initialData.title}</p>}
       {isEditing && (
         <Form {...form}>
           <form
@@ -94,13 +87,13 @@ export const DescriptionForm = ({
           >
             <FormField
               control={form.control}
-              name="description"
+              name="title"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Textarea
+                    <Input
                       disabled={isSubmitting}
-                      placeholder="e.g. 'This course is about...'"
+                      placeholder="e.g. 'Introduction to the course'"
                       {...field}
                     />
                   </FormControl>
