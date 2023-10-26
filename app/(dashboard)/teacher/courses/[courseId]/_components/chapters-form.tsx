@@ -80,7 +80,7 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
   }
 
   return (
-    <div className="relative mt-6 rounded-md border bg-slate-100 p-4">
+    <div className="relative mt-6 rounded-md border bg-slate-100 p-4 dark:bg-slate-500">
       {isUpdating && (
         <div className="absolute top-0 h-full w-full bg-slate-500/20">
           <Loader2 className="h-6 w-6 animate-spin text-sky-700" />

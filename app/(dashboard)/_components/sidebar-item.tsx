@@ -29,7 +29,7 @@ export const SidebarItem = ({ icon: Icon, label, href }: SidebarItemProps) => {
       type="button"
       className={cn(
         `flex items-center gap-x-2 pl-6 text-sm font-medium text-slate-500
-        transition-all hover:bg-slate-300/20 hover:text-slate-600`,
+        transition-all hover:bg-slate-300/20 hover:text-slate-600 dark:text-slate-300`,
         isActive &&
           'bg-sky-200/20 text-sky-700 hover:bg-sky-200/20 hover:text-sky-700'
       )}

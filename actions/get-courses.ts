@@ -4,7 +4,7 @@ import { getProgress } from '@/actions/get-progress'
 import { db } from '@/lib/prisma'
 
 type CourseWithProgressWithCategory = Course & {
-  Category: Category | null
+  category: Category | null
   chapters: { id: string }[]
   progress: number | null
 }
@@ -30,7 +30,7 @@ export const getCourses = async ({
         categoryId,
       },
       include: {
-        Category: true,
+        category: true,
         chapters: {
           where: {
             isPublished: true,

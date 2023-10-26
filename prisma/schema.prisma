@@ -19,7 +19,7 @@ model Course {
   isPublished Boolean @default(false)
 
   categoryId String?
-  Category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   attachments Attachment[]
   chapters    Chapter[]
@@ -60,7 +60,7 @@ model Chapter {
   isPublished Boolean @default(false)
   isFree      Boolean @default(false)
 
-  MuxData MuxData?
+  muxData MuxData?
 
   courseId String
   course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
