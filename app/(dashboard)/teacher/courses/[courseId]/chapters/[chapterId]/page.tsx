@@ -33,7 +33,7 @@ const ChapterIdPage = async ({
       courseId: params.courseId,
     },
     include: {
-      MuxData: true,
+      muxData: true,
     },
   })
 

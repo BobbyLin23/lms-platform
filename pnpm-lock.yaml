@@ -44,6 +44,9 @@ dependencies:
   '@radix-ui/react-progress':
     specifier: ^1.0.3
     version: registry.npmmirror.com/@radix-ui/react-progress@1.0.3(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-separator':
+    specifier: ^1.0.3
+    version: registry.npmmirror.com/@radix-ui/react-separator@1.0.3(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-slot':
     specifier: ^1.0.2
     version: registry.npmmirror.com/@radix-ui/react-slot@1.0.2(@types/react@18.2.31)(react@18.2.0)
@@ -107,6 +110,9 @@ dependencies:
   zod:
     specifier: ^3.22.4
     version: registry.npmmirror.com/zod@3.22.4
+  zustand:
+    specifier: ^4.4.4
+    version: registry.npmmirror.com/zustand@4.4.4(@types/react@18.2.31)(react@18.2.0)
 
 devDependencies:
   '@types/node':
@@ -1481,6 +1487,30 @@ packages:
       '@radix-ui/react-primitive': registry.npmmirror.com/@radix-ui/react-primitive@1.0.3(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-use-callback-ref': registry.npmmirror.com/@radix-ui/react-use-callback-ref@1.0.1(@types/react@18.2.31)(react@18.2.0)
       '@radix-ui/react-use-controllable-state': registry.npmmirror.com/@radix-ui/react-use-controllable-state@1.0.1(@types/react@18.2.31)(react@18.2.0)
+      '@types/react': registry.npmmirror.com/@types/react@18.2.31
+      '@types/react-dom': registry.npmmirror.com/@types/react-dom@18.2.14
+      react: registry.npmmirror.com/react@18.2.0
+      react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
+    dev: false
+
+  registry.npmmirror.com/@radix-ui/react-separator@1.0.3(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-itYmTy/kokS21aiV5+Z56MZB54KrhPgn6eHDKkFeOLR34HMN2s8PaN47qZZAGnvupcjxHaFZnW4pQEh0BvvVuw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@radix-ui/react-separator/-/react-separator-1.0.3.tgz}
+    id: registry.npmmirror.com/@radix-ui/react-separator/1.0.3
+    name: '@radix-ui/react-separator'
+    version: 1.0.3
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': registry.npmmirror.com/@babel/runtime@7.23.2
+      '@radix-ui/react-primitive': registry.npmmirror.com/@radix-ui/react-primitive@1.0.3(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react@18.2.0)
       '@types/react': registry.npmmirror.com/@types/react@18.2.31
       '@types/react-dom': registry.npmmirror.com/@types/react-dom@18.2.14
       react: registry.npmmirror.com/react@18.2.0
@@ -5914,4 +5944,27 @@ packages:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/zod/-/zod-3.22.4.tgz}
     name: zod
     version: 3.22.4
+    dev: false
+
+  registry.npmmirror.com/zustand@4.4.4(@types/react@18.2.31)(react@18.2.0):
+    resolution: {integrity: sha512-5UTUIAiHMNf5+mFp7/AnzJXS7+XxktULFN0+D1sCiZWyX7ZG+AQpqs2qpYrynRij4QvoDdCD+U+bmg/cG3Ucxw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/zustand/-/zustand-4.4.4.tgz}
+    id: registry.npmmirror.com/zustand/4.4.4
+    name: zustand
+    version: 4.4.4
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': registry.npmmirror.com/@types/react@18.2.31
+      react: registry.npmmirror.com/react@18.2.0
+      use-sync-external-store: registry.npmmirror.com/use-sync-external-store@1.2.0(react@18.2.0)
     dev: false

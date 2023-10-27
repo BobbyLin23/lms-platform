@@ -7,3 +7,5 @@
 - Clerk
 - Prisma
 - Supabase
+- Upload Thing
+- Mux
